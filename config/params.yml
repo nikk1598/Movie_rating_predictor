@@ -1,0 +1,54 @@
+preprocessing:
+ df_dir_path: 'data'
+ last_train_path: 'data/data.csv'
+ last_imdb_path: 'data/imdb_data.csv'
+ basics_names_fe_path: 'data/basics_names_fe.csv'
+ ratings_dataset_url: "https://datasets.imdbws.com/title.ratings.tsv.gz"
+ basics_dataset_url: "https://datasets.imdbws.com/title.basics.tsv.gz"
+ principals_dataset_url: "https://datasets.imdbws.com/title.principals.tsv.gz"
+ ratings_num_votes_column: numVotes
+ basics_primary_title_column: primaryTitle
+ basics_original_title_column: originalTitle
+ basics_primary_title_lang_column: primaryTitle_language
+ basics_original_title_lang_column: originalTitle_language
+ basics_end_year_column: endYear
+ basics_movie_type: movie
+ basics_tv_movie_type: tvMovie
+ basics_names_kft_column: knownForTitles
+ target_column: averageRating
+ genres_column: genres
+ movie_id_column: tconst
+ person_id_column: nconst
+ start_year_column: startYear
+ runtime_minutes_column: runtimeMinutes
+ title_type_column: titleType
+ is_adult_column: isAdult
+ cast_column: cast
+ index_column: index
+ shuffle: False
+ test_size: 0.16
+ random_state: 10
+
+training:
+ target_column: averageRating
+ test_size: 0.16
+ random_state: 10
+ n_trials: 20
+ shuffle: False
+
+
+ metrics_path: 'report/metrics.json'
+ model_path: 'models/trained_model.json'
+ study_path: 'models/study.json'
+
+prediction:
+ prediction_path: 'data/prediction.parquet.gzip'
+
+report:
+ feat_imp_path: 'models/feat_imp.png'
+
+unique_data:
+ unique_genres_path: 'data/unique_genres.csv'
+ unique_cast_path: 'data/unique_cast.csv'
+ unique_pt_lang_path: 'data/uniquePTLang.csv'
+ unique_ot_lang_path: 'data/uniqueOTLang.csv'
